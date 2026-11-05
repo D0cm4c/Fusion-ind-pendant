@@ -32,6 +32,7 @@ Electron + Vite + React + TypeScript, SQLite (`better-sqlite3`), empaquetage `el
 
 ## Documentation
 
+- [Benchmark des applications existantes](docs/concurrents.md)
 - [Onboarding (premier lancement)](docs/onboarding.md)
 - [Architecture et connecteurs](docs/architecture.md)
 - [Classement intelligent des fichiers](docs/classement-intelligent.md)
