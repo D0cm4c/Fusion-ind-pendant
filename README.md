@@ -18,6 +18,8 @@ Pour un indépendant, le stress vient de la dispersion : fichiers et échanges �
 
 Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce flux : c'est souvent un fichier reçu par mail qui crée le lien client → projet, et tout le reste en découle.
 
+**Fiche client** : chaque client a sa fiche récapitulative avec un tableau de bord — travail fait, reste à faire, fichiers arrivés, fichiers à envoyer — généré à partir des notes, fichiers, tâches, temps et factures (pas d'agent IA : l'app agrège les données existantes et encourage à compléter ce qui manque via une jauge de complétude et des rappels doux). Voir [docs/fiche-client.md](docs/fiche-client.md)
+
 ## Principes directeurs
 
 - **Desktop installable** : installateurs natifs Windows / macOS / Linux, données en local (SQLite), fonctionnement possible hors ligne
@@ -33,6 +35,7 @@ Electron + Vite + React + TypeScript, SQLite (`better-sqlite3`), empaquetage `el
 ## Documentation
 
 - [Benchmark des applications existantes](docs/concurrents.md)
+- [Fiche client et tableau de bord](docs/fiche-client.md)
 - [Onboarding (premier lancement)](docs/onboarding.md)
 - [Architecture et connecteurs](docs/architecture.md)
 - [Classement intelligent des fichiers](docs/classement-intelligent.md)

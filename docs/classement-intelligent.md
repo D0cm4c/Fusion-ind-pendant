@@ -65,6 +65,10 @@ Seuils :
 
 Quand l'utilisateur corrige une suggestion (autre dossier, autres étiquettes, « ne plus proposer pour cet expéditeur »), la préférence est enregistrée comme règle (`regle`) et réutilisée : **l'app apprend de vos corrections**, par expéditeur, par mot-clé ou par extension.
 
+## Upload manuel
+
+Un bouton **« Ajouter un fichier »** (fiche projet / client) ouvre le sélecteur de fichiers ; les suggestions de classement (dossier + étiquettes) s'appliquent exactement comme pour une pièce jointe reçue, avec validation en un clic. Voir [fiche-client.md](fiche-client.md).
+
 ## Doublons et nommage
 
 - **Déduplication** par hash SHA-256 : un même fichier reçu deux fois est signalé comme doublon, avec proposition de ne garder qu'un exemplaire — jamais de suppression automatique
