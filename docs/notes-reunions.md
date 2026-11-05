@@ -7,7 +7,7 @@ Deux outils transverses, toujours rattachés à un projet (et donc à un client)
 - Une **réunion** est rattachée à un projet : date, durée, participants
 - **Écran de prise de notes dédié**, pensé pour être utilisé *pendant* la réunion : grand champ de saisie, mise en forme légère (titres, listes à cocher), horodatage optionnel de chaque point (HH:MM)
 - **Minuteur intégré** : on démarre l'horloge en début de réunion, elle s'ajoute automatiquement au temps du projet — plus d'heures de réunion oubliées
-- **Compte-rendu structuré** en fin de réunion : décisions / actions à faire ; chaque action peut devenir une **tâche** avec une estimation de temps, qui alimente le suivi du temps puis la facturation
+- **Compte-rendu structuré** en fin de réunion : décisions / actions à faire ; chaque action devient une **tâche reliée** (à la réunion, au projet, au client), avec une estimation de temps éventuelle, qui alimente le suivi du temps puis la facturation — voir [taches.md](taches.md)
 - Les fichiers déposés dans une note passent par le classement intelligent (rangement + étiquettes proposés comme ailleurs)
 - Recherche plein texte dans toutes les notes
 
@@ -31,6 +31,7 @@ Deux outils transverses, toujours rattachés à un projet (et donc à un client)
 reunion:     id, projetId, date, dureeSecondes, participants, compteRendu
 note:        id, reunionId, horodatage, texte
 commentaire: id, cibleType (fichier | note), cibleId, auteur, date, texte
-tache:       id, projetId, reunionId (optionnel), libelle, estimationSecondes, fait
+tache:       id, projetId, clientId, libelle, fait, echeance, ordre, creeLe, estimationSecondes,
+             fichierId / messageId / noteId / reunionId (optionnels) — voir [taches.md](taches.md)
 lien:        id, noteId, cibleType (note | projet | client | fichier), cibleId
 ```

@@ -7,7 +7,7 @@ Chaque client a une **fiche récapitulative** avec un tableau de bord : ce qui a
 - Identité : nom, emails, téléphone, notes de contact
 - Projets du client et taux horaire
 - **Travail fait** : tâches cochées, réunions avec compte-rendu, temps passé (total et par période), factures émises / payées, fichiers envoyés (tag `envoyé`)
-- **Reste à faire** : tâches ouvertes avec échéances, devis / factures en attente de paiement, relances prévues
+- **Reste à faire** : tâches ouvertes du client (depuis la to-do, les mails, les notes de réunion — liens bidirectionnels), avec échéances, devis / factures en attente de paiement, relances prévues
 - **Fichiers arrivés récemment** : derniers fichiers reçus (mail, chat, upload manuel) pas encore classés → rappel de les valider
 - **À envoyer au client** : fichiers tagués `à-envoyer` (livrables prévus)
 

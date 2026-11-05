@@ -20,6 +20,8 @@ Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce f
 
 **Fiche client** : chaque client a sa fiche récapitulative avec un tableau de bord — travail fait, reste à faire, fichiers arrivés, fichiers à envoyer — généré à partir des notes, fichiers, tâches, temps et factures (pas d'agent IA : l'app agrège les données existantes et encourage à compléter ce qui manque via une jauge de complétude et des rappels doux). Voir [docs/fiche-client.md](docs/fiche-client.md)
 
+**To-do list centrale** : les tâches du jour vivent au cœur de l'écran d'accueil « Aujourd'hui », reliées aux fichiers, mails, notes de réunion et fiches clients (liens bidirectionnels). Voir [docs/taches.md](docs/taches.md)
+
 ## Principes directeurs
 
 - **Desktop installable** : installateurs natifs Windows / macOS / Linux, données en local (SQLite), fonctionnement possible hors ligne
@@ -40,6 +42,7 @@ Electron + Vite + React + TypeScript, SQLite (`better-sqlite3`), empaquetage `el
 - [Écran d'accueil — point pivot](docs/ecran-accueil.md)
 - [Synchro multi-postes chiffrée](docs/synchro-chiffree.md)
 - [Fiche client et tableau de bord](docs/fiche-client.md)
+- [To-do list centrale et reliée](docs/taches.md)
 - [Onboarding (premier lancement)](docs/onboarding.md)
 - [Architecture et connecteurs](docs/architecture.md)
 - [Classement intelligent des fichiers](docs/classement-intelligent.md)
