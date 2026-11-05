@@ -1,0 +1,42 @@
+# Architecture
+
+## Stack
+
+- **Electron** (process main + renderer), **Vite**, **React**, **TypeScript**
+- **SQLite** via `better-sqlite3` : toutes les données métier en local, l'app fonctionne hors ligne
+- **electron-builder** : installateurs natifs (`.exe`/`.msi` Windows, `.dmg` macOS, `.AppImage`/`.deb` Linux) + auto-update optionnel
+- **OAuth2 + PKCE** pour toutes les connexions, avec redirect sur un serveur local `127.0.0.1` : l'utilisateur se connecte dans son navigateur habituel, l'app récupère le retour toute seule
+- **safeStorage** : tokens et secrets chiffrés via le trousseau du système (Keychain macOS, Credential Manager Windows, libsecret Linux), jamais écrits en clair sur le disque
+
+## Connecteurs (vos comptes, vos données)
+
+| Service | API | Scopes / permissions | Notes |
+|---|---|---|---|
+| Google Drive | Drive API v3 | `drive.file` (fichiers créés par l'app) ou `drive` | dossier racine dédié `Fusion/` |
+| Dropbox | Content API | OAuth2 + PKCE, upload/download | dossier racine dédié `Fusion/` |
+| Gmail | Gmail API | `gmail.modify`, `gmail.send` | scopes « restricted » : en usage perso/test aucun souci ; vérification Google (CASA) nécessaire si diffusion publique |
+| Outlook / Microsoft 365 | Microsoft Graph via MSAL | `Mail.ReadWrite Mail.Send offline_access`, endpoint `/common` | gratuit, consentement de l'utilisateur seul, comptes perso et pros |
+| Telegram | Bot API (bot, gratuit) ou MTProto compte utilisateur (GramJS) | api_id/api_hash pour le compte | gratuit ; les clients non officiels sont surveillés (risque flood/ban en cas d'abus) |
+| Discord | API officielle (bot) | bot + scopes messages | gratuit, stable |
+| WhatsApp | **pas d'API pour les comptes personnels** | — | option 1 : lien `wa.me` « ouvrir dans WhatsApp » (légal, gratuit) ; option 2 : WhatsApp Business Cloud API (numéro dédié + Meta Business vérifié, facturation au message livré depuis juillet 2025, templates approuvés pour démarrer une conversation) — module avancé, payant |
+
+## Données
+
+- **Base SQLite locale** : projets, clients, fichiers (métadonnées), index des messages, temps, devis/factures, règles de classement apprises
+- **Fichiers binaires** : sur le Google Drive / Dropbox de l'utilisateur ; sauvegarde chiffrée optionnelle du fichier de base sur le stockage connecté
+- **Sécurité** : scopes minimaux demandés, aucune suppression automatique, corbeille avant toute destruction, journal d'activité de chaque action
+
+## Messageries : le bilan honnête
+
+- Mail Gmail + Outlook : intégration officielle, gratuite, fiable → cœur du module Messages
+- Telegram, Discord : API officielles gratuites → chat intégré
+- WhatsApp compte perso : **aucune API officielle** ; les solutions non officielles (QR multi-device) violent les CGU et risquent le bannissement du numéro → on ne le promet pas dans l'app
+- Signal : pas d'API officielle (`signal-cli` non officiel) ; iMessage : impossible proprement
+
+## UX « débutant d'abord »
+
+- Assistant de première configuration avec checklist visible en permanence (« 1. Connecter mon mail ✓ — 2. Connecter mon stockage — 3. Créer mon premier projet »)
+- Une seule action par écran, boutons explicites (« Connecter mon compte Gmail »), jamais de jargon technique
+- Chaque connexion explique en clair à quoi elle donne accès, avec bouton « Révoquer »
+- En cas d'erreur : cause probable + étape suivante proposées, jamais un code d'erreur brut
+- Mode simplifié (par défaut) / mode avancé (réglages puissants, classement automatique) derrière un toggle

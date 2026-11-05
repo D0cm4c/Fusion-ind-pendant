@@ -1,0 +1,82 @@
+# Classement intelligent des fichiers
+
+C'est le cœur de l'application. Objectif : quand un client envoie un fichier (par mail, par chat, ou déposé manuellement), l'application **propose automatiquement de le ranger au bon endroit, avec les bonnes étiquettes** — et **n'applique jamais rien sans un clic de validation** de l'utilisateur (mode prudent par défaut).
+
+## Modèle de données (SQLite)
+
+```
+fichier:  id, nom, nomNormalise, hashSHA256, taille, mime, extension,
+          source (mail | chat | upload | manuel), sourceRef (id du message d'origine),
+          expediteur, projetId, clientId, tags[], cheminDistant,
+          dateReception, dateClassement, statut (a_classer | classe | archive | corbeille),
+          confiance (score de la suggestion)
+
+projet:   id, nom, clientId, couleur, tauxHoraire, dossierRacine
+client:   id, nom, emails[], telephone, couleur
+tag:      id, libelle, couleur
+regle:    id, type (expediteur | mot_cle | extension | domaine), cle, dossierCible, tags, confiance, active
+```
+
+Arborescence distante proposée sur le Drive/Dropbox :
+
+```
+Fusion/
+  Projets/<NomProjet>/
+    01_Administratif/   (devis, factures, contrats, CGV, acomptes)
+    02_Visuels/         (images, maquettes, logos, captures)
+    03_Livrables/
+    04_Echanges/        (fichiers reçus, en attente de classement fin)
+  Clients/<NomClient>/
+  Modeles/              (modèles de devis/factures)
+```
+
+## Moteur de règles (suggestions)
+
+À l'arrivée d'un fichier, l'app calcule un **score de confiance (0–100)** à partir de signaux :
+
+- **expéditeur** : adresse déjà connue d'un client → client + projet actif de ce client
+- **mots-clés** dans l'objet du mail et dans le nom du fichier (`facture`, `devis`, `contrat`, `brief`, `logo`, `maquette`, `cgv`, `acompte`…)
+- **extension** : `pdf` → administratif ; `jpg/png/webp/svg/heic` → visuels ; `zip` → livrables ; etc.
+- **domaine** de l'expéditeur, taille, date
+
+Seuils :
+
+- score ≥ 80 → **suggestion forte**, en tête de la « Boîte à classer »
+- 40–79 → suggestion faible, à confirmer
+- < 40 → statut `à_classer`, sans proposition de destination
+
+## Workflow type : un client envoie un fichier par mail
+
+1. L'app détecte la pièce jointe (Gmail API / Microsoft Graph)
+2. Elle calcule la suggestion : dossier cible, étiquettes, projet, client
+3. Elle affiche une **carte de confirmation en langage clair** :
+
+   > « Marie Durand vous a envoyé **devis-site.pdf**.
+   > Je propose de le ranger dans **Projet « Site web » → 01_Administratif** sur votre Google Drive,
+   > et de l'étiqueter : `#devis` `#client-marie` `#reçu-par-mail` »
+   >
+   > [Valider] [Changer le dossier] [Changer les étiquettes] [Laisser en attente]
+
+4. Au clic **Valider** : téléchargement de la pièce jointe, upload vers Drive/Dropbox, enregistrement en base, lien mail ↔ fichier, étiquetage éventuel du mail (label « traité »)
+5. Chaque action est écrite dans le **journal d'activité** (« Aujourd'hui 14:02 — devis-site.pdf rangé dans Site web / 01_Administratif »)
+
+## Apprentissage
+
+Quand l'utilisateur corrige une suggestion (autre dossier, autres étiquettes, « ne plus proposer pour cet expéditeur »), la préférence est enregistrée comme règle (`regle`) et réutilisée : **l'app apprend de vos corrections**, par expéditeur, par mot-clé ou par extension.
+
+## Doublons et nommage
+
+- **Déduplication** par hash SHA-256 : un même fichier reçu deux fois est signalé comme doublon, avec proposition de ne garder qu'un exemplaire — jamais de suppression automatique
+- **Renommage optionnel standardisé** : `AAAA-MM-JJ_<Projet>_<Type>_<nom-original>.ext`
+
+## Vues et tri dans l'app
+
+- Vues : **Tout / À classer** (badge avec le nombre en attente) / Par projet / Par client / Par type / Images / Doublons / Corbeille
+- Filtres combinables (projet × étiquette × période × source) + recherche plein texte (nom, étiquettes, expéditeur)
+- Tri par date, taille, nom ; **glisser-déposer** pour reclasser à la main (l'app apprend de chaque déplacement)
+
+## Sécurité
+
+- Mode prudent par défaut : aucune suggestion appliquée sans clic explicite ; le classement automatique n'existe qu'en mode avancé
+- Aucune suppression automatique : corbeille locale puis distante, vidage manuel uniquement
+- Les pièces jointes restent dans la boîte mail d'origine ; l'app ne modifie jamais un mail sans action de l'utilisateur
