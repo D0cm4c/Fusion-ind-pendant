@@ -9,6 +9,14 @@ Application **desktop installable** qui aide un indépendant — y compris quelq
 3. **Temps** — suivi du temps passé par projet et par tâche (minuteur, timesheet)
 4. **Facturation** — devis et factures générés depuis le temps passé, envoyés par mail, suivi des paiements
 
+## Le problème que l'on résout
+
+Pour un indépendant, le stress vient de la dispersion : fichiers et échanges éparpillés entre la boîte mail, les téléchargements, Drive et Dropbox — et heures ou factures oubliées. L'application y répond par un **seul flux continu** :
+
+**recevoir → classer → suivre le temps → facturer → être payé**
+
+Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce flux : c'est souvent un fichier reçu par mail qui crée le lien client → projet, et tout le reste en découle.
+
 ## Principes directeurs
 
 - **Desktop installable** : installateurs natifs Windows / macOS / Linux, données en local (SQLite), fonctionnement possible hors ligne

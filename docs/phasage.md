@@ -1,5 +1,7 @@
 # Phasage
 
+M1 + M2 + M3 forment le flux principal de l'application : recevoir → classer → suivre le temps → facturer → être payé.
+
 - **M0** — Squelette Electron + assistant de connexion pas à pas (Gmail ou Outlook en premier), base SQLite, stockage sécurisé des tokens
 - **M1** — Boîte mail unifiée (Gmail + Outlook) + détection des pièces jointes + moteur de suggestions (propositions uniquement, sans upload automatique)
 - **M2** — Connexion Google Drive / Dropbox + application des rangements validés (upload, arborescence `Fusion/`) + vues, filtres, doublons, corbeille, apprentissage des corrections

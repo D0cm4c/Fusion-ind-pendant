@@ -1,6 +1,6 @@
 # Classement intelligent des fichiers
 
-C'est le cœur de l'application. Objectif : quand un client envoie un fichier (par mail, par chat, ou déposé manuellement), l'application **propose automatiquement de le ranger au bon endroit, avec les bonnes étiquettes** — et **n'applique jamais rien sans un clic de validation** de l'utilisateur (mode prudent par défaut).
+C'est la **porte d'entrée** du flux de l'application (recevoir → classer → suivre le temps → facturer → être payé), pas une fin en soi. Objectif : quand un client envoie un fichier (par mail, par chat, ou déposé manuellement), l'application **propose automatiquement de le ranger au bon endroit, avec les bonnes étiquettes** — et **n'applique jamais rien sans un clic de validation** de l'utilisateur (mode prudent par défaut). Un fichier bien classé alimente ensuite le suivi du temps et la facturation du projet concerné.
 
 ## Modèle de données (SQLite)
 
