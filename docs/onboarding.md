@@ -10,6 +10,7 @@ Objectif : qu'un débutant soit opérationnel en quelques minutes, sans jamais �
    - [Dropbox] — connexion OAuth guidée
    - [Un dossier de mon ordinateur] — mode **100 % local** : aucun compte cloud requis, les fichiers restent sur la machine (dossier au choix, emplacement proposé par défaut)
    - [Plus tard]
+   - si Drive ou Dropbox est choisi, étape suivante : **créer un mot de passe maître** (il chiffre la base avant synchro sur le cloud ; il ne quitte jamais l'ordinateur — une phrase de récupération imprimable est proposée). Voir [synchro-chiffree.md](synchro-chiffree.md)
 3. **Quelle boîte mail connecter ?**
    - [Gmail] — OAuth guidé (Gmail API)
    - [Outlook / Microsoft 365] — OAuth guidé (Microsoft Graph)
@@ -17,7 +18,7 @@ Objectif : qu'un débutant soit opérationnel en quelques minutes, sans jamais �
    - [Plus tard]
 4. **Un chat à connecter ?** (optionnel) — [Telegram] [Discord] [Plus tard]
 5. **Votre premier projet** — nom du projet, nom du client, taux horaire par défaut
-6. **C'est prêt** — récapitulatif en checklist (Stockage ✓ / Mail ✓ / …) avec le bouton « Ouvrir mon espace »
+6. **C'est prêt** — récapitulatif en checklist (Stockage ✓ / Mot de passe maître ✓ / Mail ✓ / …) avec le bouton « Ouvrir mon espace »
 
 ## Règles UX
 
