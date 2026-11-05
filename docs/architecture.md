@@ -16,6 +16,7 @@
 | Dropbox | Content API | OAuth2 + PKCE, upload/download | dossier racine dédié `Fusion/` |
 | Gmail | Gmail API | `gmail.modify`, `gmail.send` | scopes « restricted » : en usage perso/test aucun souci ; vérification Google (CASA) nécessaire si diffusion publique |
 | Outlook / Microsoft 365 | Microsoft Graph via MSAL | `Mail.ReadWrite Mail.Send offline_access`, endpoint `/common` | gratuit, consentement de l'utilisateur seul, comptes perso et pros |
+| Toute autre boîte mail (Orange, Free, SFR, Bouygues, La Poste, OVH, Infomaniak, Yahoo, iCloud, Zoho…) | **IMAP** (lecture) + **SMTP** (envoi), OAuth2 quand le fournisseur le propose, sinon mot de passe / mot de passe d'application | détection automatique des serveurs, ou saisie guidée ; identifiants chiffrés via safeStorage |
 | Telegram | Bot API (bot, gratuit) ou MTProto compte utilisateur (GramJS) | api_id/api_hash pour le compte | gratuit ; les clients non officiels sont surveillés (risque flood/ban en cas d'abus) |
 | Discord | API officielle (bot) | bot + scopes messages | gratuit, stable |
 | WhatsApp | **pas d'API pour les comptes personnels** | — | option 1 : lien `wa.me` « ouvrir dans WhatsApp » (légal, gratuit) ; option 2 : WhatsApp Business Cloud API (numéro dédié + Meta Business vérifié, facturation au message livré depuis juillet 2025, templates approuvés pour démarrer une conversation) — module avancé, payant |
@@ -23,7 +24,7 @@
 ## Données
 
 - **Base SQLite locale** : projets, clients, fichiers (métadonnées), index des messages, temps, devis/factures, règles de classement apprises
-- **Fichiers binaires** : sur le Google Drive / Dropbox de l'utilisateur ; sauvegarde chiffrée optionnelle du fichier de base sur le stockage connecté
+- **Fichiers binaires** : au choix — sur le Google Drive / Dropbox de l'utilisateur, **ou dans un dossier local de l'ordinateur** (mode 100 % local, choisi à l'onboarding) ; sauvegarde chiffrée optionnelle de la base sur le stockage cloud connecté
 - **Sécurité** : scopes minimaux demandés, aucune suppression automatique, corbeille avant toute destruction, journal d'activité de chaque action
 
 ## Messageries : le bilan honnête
@@ -35,7 +36,7 @@
 
 ## UX « débutant d'abord »
 
-- Assistant de première configuration avec checklist visible en permanence (« 1. Connecter mon mail ✓ — 2. Connecter mon stockage — 3. Créer mon premier projet »)
+- Assistant de première configuration avec checklist visible en permanence — parcours détaillé dans [onboarding.md](onboarding.md) : choix du stockage (Drive / Dropbox / **local** / plus tard), choix de la messagerie (Gmail / Outlook / **autre adresse IMAP** / plus tard), chat optionnel, premier projet
 - Une seule action par écran, boutons explicites (« Connecter mon compte Gmail »), jamais de jargon technique
 - Chaque connexion explique en clair à quoi elle donne accès, avec bouton « Révoquer »
 - En cas d'erreur : cause probable + étape suivante proposées, jamais un code d'erreur brut

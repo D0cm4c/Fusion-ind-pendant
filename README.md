@@ -5,7 +5,7 @@ Application **desktop installable** qui aide un indépendant — y compris quelq
 ## Les quatre piliers
 
 1. **Fichiers & images** — classement et tri intelligents des fichiers reçus (mail, chat, dépôt manuel), stockés sur votre propre Google Drive ou Dropbox. Voir [docs/classement-intelligent.md](docs/classement-intelligent.md)
-2. **Messages** — boîte mail unifiée (Gmail, Outlook) et chat (Telegram, Discord), reliée à chaque projet et chaque client
+2. **Messages** — boîte mail unifiée (Gmail, Outlook, ou toute autre boîte mail via IMAP) et chat (Telegram, Discord), reliée à chaque projet et chaque client
 3. **Temps** — suivi du temps passé par projet et par tâche (minuteur, timesheet)
 4. **Facturation** — devis et factures générés depuis le temps passé, envoyés par mail, suivi des paiements
 5. **Notes & base de connaissances** — notes de réunion rattachées à chaque projet (minuteur intégré, actions à faire), notes reliées entre elles façon base de connaissances (liens proposés automatiquement, comme Obsidian mais sans syntaxe à apprendre), et fil de commentaires sur chaque fichier. Voir [docs/notes-reunions.md](docs/notes-reunions.md)
@@ -23,6 +23,7 @@ Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce f
 - **Desktop installable** : installateurs natifs Windows / macOS / Linux, données en local (SQLite), fonctionnement possible hors ligne
 - **Pensé pour les débutants** : assistant de connexion pas à pas, une seule action par écran, langage clair, explications à chaque étape
 - **Rien ne bouge sans vous** : l'application *propose* de ranger et d'étiqueter chaque fichier reçu, mais n'applique jamais une suggestion sans votre clic de validation (mode prudent par défaut)
+- **Stockage au choix dès l'installation** : Google Drive, Dropbox, ou un simple dossier de votre ordinateur (mode 100 % local, aucun compte cloud requis)
 - **Vos comptes, vos données** : connexion OAuth à vos propres comptes Google Drive / Dropbox / Gmail / Outlook ; les identifiants sont chiffrés dans le trousseau de votre système, jamais stockés en clair
 
 ## Stack
@@ -31,6 +32,7 @@ Electron + Vite + React + TypeScript, SQLite (`better-sqlite3`), empaquetage `el
 
 ## Documentation
 
+- [Onboarding (premier lancement)](docs/onboarding.md)
 - [Architecture et connecteurs](docs/architecture.md)
 - [Classement intelligent des fichiers](docs/classement-intelligent.md)
 - [Notes de réunion et commentaires](docs/notes-reunions.md)
