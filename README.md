@@ -8,7 +8,7 @@ Application **desktop installable** qui aide un indépendant — y compris quelq
 2. **Messages** — boîte mail unifiée (Gmail, Outlook) et chat (Telegram, Discord), reliée à chaque projet et chaque client
 3. **Temps** — suivi du temps passé par projet et par tâche (minuteur, timesheet)
 4. **Facturation** — devis et factures générés depuis le temps passé, envoyés par mail, suivi des paiements
-5. **Notes de réunion & commentaires** — prise de notes pendant les réunions, rattachée à chaque projet (avec minuteur intégré et actions à faire), et fil de commentaires sur chaque fichier. Voir [docs/notes-reunions.md](docs/notes-reunions.md)
+5. **Notes & base de connaissances** — notes de réunion rattachées à chaque projet (minuteur intégré, actions à faire), notes reliées entre elles façon base de connaissances (liens proposés automatiquement, comme Obsidian mais sans syntaxe à apprendre), et fil de commentaires sur chaque fichier. Voir [docs/notes-reunions.md](docs/notes-reunions.md)
 
 ## Le problème que l'on résout
 
