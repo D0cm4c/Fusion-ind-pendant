@@ -4,7 +4,7 @@ Application **desktop installable** qui aide un indépendant — y compris quelq
 
 ## Les quatre piliers
 
-1. **Fichiers & images** — classement et tri intelligents des fichiers reçus (mail, chat, dépôt manuel), stockés sur votre propre Google Drive ou Dropbox. Voir [docs/classement-intelligent.md](docs/classement-intelligent.md)
+1. **Fichiers & images** — classement et tri intelligents des fichiers reçus (mail, chat, dépôt manuel), stockés sur votre propre cloud (Google Drive, Dropbox, ou un fournisseur plus confidentiel : kDrive, pCloud, MEGA, Proton Drive, Nextcloud…). Voir [docs/classement-intelligent.md](docs/classement-intelligent.md)
 2. **Messages** — boîte mail unifiée (Gmail, Outlook, ou toute autre boîte mail via IMAP) et chat (Telegram, Discord), reliée à chaque projet et chaque client
 3. **Temps** — suivi du temps passé par projet et par tâche (minuteur, timesheet)
 4. **Facturation** — devis et factures générés depuis le temps passé, envoyés par mail, suivi des paiements
@@ -25,7 +25,7 @@ Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce f
 - **Desktop installable** : installateurs natifs Windows / macOS / Linux, données en local (SQLite), fonctionnement possible hors ligne
 - **Pensé pour les débutants** : assistant de connexion pas à pas, une seule action par écran, langage clair, explications à chaque étape
 - **Rien ne bouge sans vous** : l'application *propose* de ranger et d'étiqueter chaque fichier reçu, mais n'applique jamais une suggestion sans votre clic de validation (mode prudent par défaut)
-- **Stockage au choix dès l'installation** : Google Drive, Dropbox, ou un simple dossier de votre ordinateur (mode 100 % local, aucun compte cloud requis)
+- **Stockage au choix dès l'installation** : Google Drive, Dropbox, un fournisseur respectueux de la vie privée (kDrive, pCloud, MEGA, Proton Drive, Nextcloud…), ou un simple dossier de votre ordinateur (mode 100 % local, aucun compte cloud requis)
 - **Un écran d'accueil utile** : « Aujourd'hui », avec la boîte à classer au centre (point pivot), les tâches en cours et les factures en attente — voir [docs/ecran-accueil.md](docs/ecran-accueil.md)
 - **Synchro multi-postes chiffrée** : le cloud sert aussi à synchroniser l'app entre plusieurs ordinateurs, via un fichier chiffré (mot de passe maître, jamais transmis) — voir [docs/synchro-chiffree.md](docs/synchro-chiffree.md)
 - **Vos comptes, vos données** : connexion OAuth à vos propres comptes Google Drive / Dropbox / Gmail / Outlook ; les identifiants sont chiffrés dans le trousseau de votre système, jamais stockés en clair

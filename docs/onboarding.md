@@ -6,10 +6,18 @@ Objectif : qu'un débutant soit opérationnel en quelques minutes, sans jamais �
 
 1. **Bienvenue** — en trois phrases, ce que fait l'application (le flux recevoir → classer → suivre le temps → facturer → être payé) et la promesse « rien ne bouge sans votre validation »
 2. **Où stocker vos fichiers ?**
-   - [Google Drive] — connexion OAuth guidée
-   - [Dropbox] — connexion OAuth guidée
+   - *Cloud classique :*
+     - [Google Drive] — connexion OAuth guidée
+     - [Dropbox] — connexion OAuth guidée
+   - *Cloud respectueux de la vie privée (recommandés) :*
+     - [kDrive — Infomaniak] — Suisse, 15 Go gratuits, hébergement souverain
+     - [pCloud] — Suisse, 10 Go gratuits
+     - [MEGA] — 20 Go gratuits, chiffrement de bout en bout natif
+     - [Proton Drive] — Suisse, 5 Go gratuits, zero-knowledge
+     - [Nextcloud / autre cloud compatible WebDAV] — auto-hébergé ou hébergeur de confiance (Zaclys, Hetzner…)
    - [Un dossier de mon ordinateur] — mode **100 % local** : aucun compte cloud requis, les fichiers restent sur la machine (dossier au choix, emplacement proposé par défaut)
    - [Plus tard]
+   - dans tous les cas cloud, la base de l'app est **chiffrée localement avant tout envoi** (voir étape mot de passe maître), donc même Google Drive devient sûr pour les données
    - si Drive ou Dropbox est choisi, étape suivante : **créer un mot de passe maître** (il chiffre la base avant synchro sur le cloud ; il ne quitte jamais l'ordinateur — une phrase de récupération imprimable est proposée). Voir [synchro-chiffree.md](synchro-chiffree.md)
 3. **Quelle boîte mail connecter ?**
    - [Gmail] — OAuth guidé (Gmail API)

@@ -14,6 +14,11 @@
 |---|---|---|---|
 | Google Drive | Drive API v3 | `drive.file` (fichiers créés par l'app) ou `drive` | dossier racine dédié `Fusion/` |
 | Dropbox | Content API | OAuth2 + PKCE, upload/download | dossier racine dédié `Fusion/` |
+| kDrive (Infomaniak) | API kDrive (compatible ownCloud) | Suisse, 15 Go gratuits | hébergement souverain, option « vie privée » |
+| pCloud | pCloud API | Suisse, 10 Go gratuits | chiffrement côté client en option (Crypto) |
+| MEGA | MEGA SDK / API | 20 Go gratuits, chiffrement de bout en bout natif | API officielle, E2EE par défaut |
+| Proton Drive | API Proton (encore jeune — à confirmer au moment du dev) | Suisse, 5 Go gratuits, zero-knowledge | chiffrement de bout en bout natif |
+| Nextcloud / ownCloud / Icedrive / Koofr / autres | **WebDAV** (un seul connecteur couvre ces fournisseurs) | mot de passe d'application, auto-hébergé possible | open source, hébergement au choix |
 | Gmail | Gmail API | `gmail.modify`, `gmail.send` | scopes « restricted » : en usage perso/test aucun souci ; vérification Google (CASA) nécessaire si diffusion publique |
 | Outlook / Microsoft 365 | Microsoft Graph via MSAL | `Mail.ReadWrite Mail.Send offline_access`, endpoint `/common` | gratuit, consentement de l'utilisateur seul, comptes perso et pros |
 | Toute autre boîte mail (Orange, Free, SFR, Bouygues, La Poste, OVH, Infomaniak, Yahoo, iCloud, Zoho…) | **IMAP** (lecture) + **SMTP** (envoi), OAuth2 quand le fournisseur le propose, sinon mot de passe / mot de passe d'application | détection automatique des serveurs, ou saisie guidée ; identifiants chiffrés via safeStorage |
