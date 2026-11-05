@@ -1,24 +1,21 @@
 # Écran d'accueil — le point pivot de l'application
 
-Quand l'indépendant ouvre l'app, il tombe sur **« Aujourd'hui »**, qui rend visible le flux central : recevoir → classer → suivre le temps → facturer → être payé.
+Quand l'indépendant ouvre l'app, il tombe sur **« Aujourd'hui »** : ce dont il a besoin pour **se mettre au travail** et être payé. Le croisement plombier / architecte / webdesigner qui justifie ce choix est dans [personas.md](personas.md).
 
-## Le point pivot : « Aujourd'hui » = ce que je dois traiter
+## Le point pivot : « Ma journée de travail »
 
-Deux blocs centraux composent l'écran d'accueil :
+Bloc central de l'écran d'accueil :
 
-1. la **boîte à classer** : suggestions de rangement des fichiers reçus (mail, chat, upload manuel) en attente d'un clic de validation, avec badge du nombre — chaque fichier validé met à jour projet, client, fiche client, et potentiellement temps et facture ;
-2. la **to-do du jour** (« Mes tâches ») : tâches cochables en un clic, reliées aux fichiers, mails, notes et clients — voir [taches.md](taches.md).
+- **Mes tâches du jour** — to-do reliée, cochables en un clic, en retard en haut (voir [taches.md](taches.md))
+- **Intervention / RDV du jour** — adresse, contact client, dossier du projet ouvert en un clic, bouton « Itinéraire » (utile pour les artisans et l'architecte)
+- **Minuteur** — démarrer / arrêter un projet en un clic
 
-Pourquoi : ce sont les deux actions les plus fréquentes, et la porte d'entrée du flux. Le reste de l'app (fichiers rangés, messages, notes, factures) en découle.
+## Les autres blocs de « Aujourd'hui »
 
-## Les 3 blocs de l'écran « Aujourd'hui »
-
-1. **À classer** (point pivot, en haut) : les suggestions en attente, chacune avec [Valider] [Modifier] — badge avec le nombre en attente
-2. **Mes tâches** (to-do reliée) : tâches du jour, en retard en haut, cochables en un clic, liées aux fichiers/mails/notes/clients ; en dessous, le minuteur (démarrer / arrêter un projet en un clic)
-3. **En attente d'argent** : factures impayées, relances à envoyer aujourd'hui, prochaines échéances
-
-En dessous : raccourcis « Nouveau mail », « Nouvelle note », « Nouveau projet ».
+2. **Messages à traiter** : mails en attente de réponse, avec badge du nombre — répondre sans quitter l'app
+3. **En attente d'argent** : factures impayées, relances à envoyer aujourd'hui, devis à relancer, prochaines échéances
+4. **À classer** (compteur/badge) : suggestions de rangement des fichiers reçus (mail, chat, upload) — la porte d'entrée automatique du flux, mais un bloc **secondaire** : classer des fichiers n'est pas le cœur du métier d'un indépendant
 
 ## Navigation latérale
 
-Aujourd'hui · Fichiers · Messages · Notes · Temps · Facturation · Clients
+Aujourd'hui · Tâches · Fichiers · Messages · Notes · Temps · Facturation · Clients
