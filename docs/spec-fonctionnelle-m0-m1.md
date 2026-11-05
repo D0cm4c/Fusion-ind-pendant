@@ -36,7 +36,7 @@ Document de référence avant le premier code : on ne code que ce qui est écrit
 - **E10 — Répondre** : éditeur simple, envoi depuis le compte d'origine
 - **E11 — À classer** : carte par suggestion — « 📄 devis-site.pdf — reçu de marie@… par mail » + « Proposition : Projet Site web → 01_Administratif · #devis #client-marie #reçu-par-mail » + [Valider] [Modifier] [Ignorer]
 - **E12 — Tâches** : liste du jour, bouton +, case à cocher en un clic
-- **E13 — Connexions & réglages** : comptes connectés avec [Révoquer], stockage choisi, toggle mode avancé, rappels doux on/off
+- **E13 — Connexions & réglages** : comptes connectés avec [Révoquer] et [**+ Ajouter un compte mail / stockage**], stockage choisi, toggle mode avancé, rappels doux on/off, [Effacer toutes mes données] (RGPD)
 
 ## Parcours détaillés (scénarios à tester)
 

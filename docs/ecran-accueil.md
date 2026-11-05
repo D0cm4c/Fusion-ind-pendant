@@ -7,7 +7,7 @@ Quand l'indépendant ouvre l'app, il tombe sur **« Aujourd'hui »** : ce dont i
 Bloc central de l'écran d'accueil :
 
 - **Mes tâches du jour** — to-do reliée, cochables en un clic, en retard en haut (voir [taches.md](taches.md))
-- **Intervention / RDV du jour** — adresse, contact client, dossier du projet ouvert en un clic, bouton « Itinéraire » (utile pour les artisans et l'architecte)
+- **Intervention / RDV du jour** — saisie manuelle dans l'app (import calendrier via **CalDAV** en option) : adresse, contact client, dossier du projet ouvert en un clic, bouton « Itinéraire » (utile pour les artisans et l'architecte)
 - **Minuteur** — démarrer / arrêter un projet en un clic
 
 ## Les autres blocs de « Aujourd'hui »

@@ -42,6 +42,7 @@ Electron + Vite + React + TypeScript, SQLite (`better-sqlite3`), empaquetage `el
 - [Spec fonctionnelle M0–M1](docs/spec-fonctionnelle-m0-m1.md)
 - [Schéma de la base de données](docs/schema-bdd.md)
 - [Comptes développeur des API](docs/comptes-developpeur.md)
+- [Revue critique des specs](docs/revue-specs.md)
 - [Écran d'accueil — point pivot](docs/ecran-accueil.md)
 - [Personas : croisement plombier / architecte / webdesigner](docs/personas.md)
 - [Synchro multi-postes chiffrée](docs/synchro-chiffree.md)

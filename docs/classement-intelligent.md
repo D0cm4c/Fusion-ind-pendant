@@ -58,7 +58,7 @@ Seuils :
    >
    > [Valider] [Changer le dossier] [Changer les étiquettes] [Laisser en attente]
 
-4. Au clic **Valider** : téléchargement de la pièce jointe, upload vers Drive/Dropbox, enregistrement en base, lien mail ↔ fichier, étiquetage éventuel du mail (label « traité »)
+4. Au clic **Valider** : enregistrement en base, lien mail ↔ fichier, et marquage du mail comme traité (lu / drapeau — les labels personnalisés ne sont disponibles qu'avec les API officielles, option M2+). En M1 (sans stockage connecté), la pièce jointe est téléchargée dans le **cache local** de l'app ; le rangement effectif dans `Fusion/` (WebDAV/local) intervient en M2.
 5. Chaque action est écrite dans le **journal d'activité** (« Aujourd'hui 14:02 — devis-site.pdf rangé dans Site web / 01_Administratif »)
 
 ## Apprentissage
