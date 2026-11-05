@@ -31,13 +31,13 @@ Relecture croisée du README et des 13 documents de `docs/`, après validation d
 - **Recherche dans le contenu des PJ** : hors MVP (SEARCH IMAP couvre les mails, pas les PDF)
 - **Tailles/quotas** : PJ trop lourde, espace cloud insuffisant — cas d'erreur à compléter en M2
 
-## Questions ouvertes à trancher
+## Questions tranchées (décisions du porteur)
 
-1. Base chiffrée (mot de passe maître) même en mode 100 % local ? (recommandé : oui)
-2. Cache des pièces jointes chiffré ou non ?
-3. Un seul projet actif par client, ou plusieurs en parallèle ? (le modèle permet plusieurs)
-4. Étiquettes : création libre par l'utilisateur en plus de celles proposées par le moteur ?
+1. Base chiffrée même en mode 100 % local → **oui** : mot de passe maître systématique à l'onboarding, la base est toujours chiffrée (SQLCipher)
+2. Cache des pièces jointes → **chiffré** (même magasin chiffré que la base, jamais en clair sur le disque)
+3. Plusieurs projets par client → **oui** (le modèle le permet déjà : `projet.client_id`)
+4. Étiquettes → **création libre par l'utilisateur**, en plus de celles proposées par le moteur de classement
 
 ## Recommandation
 
-Le cadrage est solide pour démarrer le M0. Traiter les 4 questions ouvertes avant la spec M2 (elles touchent au modèle de données), et compléter la conformité facturation en M3.
+Toutes les questions ouvertes sont tranchées : le cadrage est prêt pour le M0. Reste à compléter la conformité facturation (mentions légales FR, archivage) en M3.

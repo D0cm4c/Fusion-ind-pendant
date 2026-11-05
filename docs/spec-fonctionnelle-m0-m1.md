@@ -18,7 +18,7 @@ Document de référence avant le premier code : on ne code que ce qui est écrit
 
 - **E0 — Bienvenue** : 3 phrases du flux (recevoir → classer → temps → facturer → être payé) + promesse « rien ne bouge sans votre validation » + [Commencer]
 - **E1 — « Où stocker vos fichiers ? »** : boutons en liste — Google Drive / Dropbox / kDrive / pCloud / MEGA / Proton Drive / Nextcloud-WebDAV / 📁 Dossier de mon ordinateur / Plus tard
-  - si cloud → **E1b Mot de passe maître** : champ + confirmation + explication « ne quitte jamais cet ordinateur » + [Imprimer ma phrase de récupération]
+  - dans tous les cas (même en mode local) → **E1b Mot de passe maître** (obligatoire) : champ + confirmation + explication « chiffre la base et le cache des pièces jointes, ne quitte jamais cet ordinateur » + [Imprimer ma phrase de récupération]
   - puis **E1c Connexion OAuth** : « Ouvrir dans mon navigateur… » → retour automatique (127.0.0.1) → « ✅ C'est connecté » ou erreur expliquée + [Réessayer]
   - si local → **E1d** choix du dossier (emplacement proposé par défaut)
 - **E2 — « Quelle boîte mail connecter ? »** (IMAP/SMTP, zéro enregistrement) : champ adresse mail + [Connecter] → **détection automatique des serveurs** (Gmail avec mot de passe d'application, Orange, Free, SFR, OVH, Infomaniak, Yahoo, iCloud…) ou saisie guidée (serveurs, ports, sécurité) → mot de passe / mot de passe d'application expliqué pas à pas → [Tester la connexion] → ✅ ou erreur en langage clair
@@ -40,7 +40,7 @@ Document de référence avant le premier code : on ne code que ce qui est écrit
 
 ## Parcours détaillés (scénarios à tester)
 
-- **A** : premier lancement complet (E0 → E5) en mode local sans aucun compte
+- **A** : premier lancement complet (E0 → E5) en mode local sans aucun compte externe, avec création du mot de passe maître
 - **B** : connexion Gmail par IMAP (mot de passe d'application) — succès ; puis mauvais mot de passe (message clair + aide pas à pas pour créer le mot de passe d'application) ; puis perte réseau (mode hors ligne, reprise auto à la reconnexion)
 - **C** : nouveau mail avec PJ → suggestion dans « À classer » (E11) → [Valider] → le fichier passe en statut « classé » (le rangement cloud arrive en M2)
 - **D** : connexion IMAP d'un FAI (ex. Orange) avec mot de passe classique

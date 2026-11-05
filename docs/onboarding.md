@@ -10,8 +10,8 @@ Objectif : qu'un débutant soit opérationnel en quelques minutes, sans jamais �
    - [Un dossier de mon ordinateur] — mode **100 % local** : aucun compte cloud requis, les fichiers restent sur la machine (dossier au choix, emplacement proposé par défaut)
    - [Google Drive / Dropbox / kDrive / pCloud / MEGA / Proton Drive] — via API officielle : nécessite un enregistrement développeur (option avancée, voir [comptes-developpeur.md](comptes-developpeur.md))
    - [Plus tard]
-   - dans tous les cas cloud, la base de l'app est **chiffrée localement avant tout envoi** (voir étape mot de passe maître), donc même Google Drive devient sûr pour les données
-   - si Drive ou Dropbox est choisi, étape suivante : **créer un mot de passe maître** (il chiffre la base avant synchro sur le cloud ; il ne quitte jamais l'ordinateur — une phrase de récupération imprimable est proposée). Voir [synchro-chiffree.md](synchro-chiffree.md)
+
+2b. **Créez votre mot de passe maître** — obligatoire dans tous les cas, même en mode 100 % local : il chiffre la base de données **et le cache des pièces jointes** (et permet la synchro chiffrée si cloud). Il ne quitte jamais l'ordinateur — une **phrase de récupération imprimable** est proposée. Voir [synchro-chiffree.md](synchro-chiffree.md)
 3. **Quelle boîte mail connecter ?** (IMAP/SMTP, aucun enregistrement requis)
    - saisir l'adresse mail → **détection automatique des serveurs** (Gmail avec mot de passe d'application, Orange, Free, SFR, Bouygues, La Poste, OVH, Infomaniak, Yahoo, iCloud, Zoho…) ou saisie guidée ; le **mot de passe d'application** est expliqué pas à pas quand le fournisseur l'exige
    - [Outlook / Microsoft 365] — via Microsoft Graph (OAuth) : option avancée nécessitant un enregistrement Azure, voir [comptes-developpeur.md](comptes-developpeur.md)

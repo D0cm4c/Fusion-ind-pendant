@@ -29,6 +29,7 @@ Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce f
 - **Rien ne bouge sans vous** : l'application *propose* de ranger et d'étiqueter chaque fichier reçu, mais n'applique jamais une suggestion sans votre clic de validation (mode prudent par défaut)
 - **Stockage au choix dès l'installation** : Google Drive, Dropbox, un fournisseur respectueux de la vie privée (kDrive, pCloud, MEGA, Proton Drive, Nextcloud…), ou un simple dossier de votre ordinateur (mode 100 % local, aucun compte cloud requis)
 - **Un écran d'accueil utile** : « Aujourd'hui », centré sur **se mettre au travail** — tâches du jour, intervention/RDV du jour, messages à traiter, en attente d'argent — avec la boîte à classer en compteur secondaire — voir [docs/ecran-accueil.md](docs/ecran-accueil.md) et [docs/personas.md](docs/personas.md)
+- **Toujours chiffré** : base de données et cache des pièces jointes chiffrés (mot de passe maître, créé à l'installation même en local) — rien n'est jamais écrit en clair sur le disque
 - **Synchro multi-postes chiffrée** : le cloud sert aussi à synchroniser l'app entre plusieurs ordinateurs, via un fichier chiffré (mot de passe maître, jamais transmis) — voir [docs/synchro-chiffree.md](docs/synchro-chiffree.md)
 - **Vos comptes, vos données** : connexion OAuth à vos propres comptes Google Drive / Dropbox / Gmail / Outlook ; les identifiants sont chiffrés dans le trousseau de votre système, jamais stockés en clair
 

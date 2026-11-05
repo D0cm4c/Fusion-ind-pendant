@@ -31,7 +31,8 @@
 ## Données
 
 - **Base SQLite locale** : projets, clients, fichiers (métadonnées), index des messages, temps, devis/factures, règles de classement apprises
-- **Fichiers binaires** : au choix — sur le Google Drive / Dropbox de l'utilisateur, **ou dans un dossier local de l'ordinateur** (mode 100 % local, choisi à l'onboarding) ; sauvegarde chiffrée optionnelle de la base sur le stockage cloud connecté
+- **Fichiers binaires** : au choix — sur le stockage WebDAV de l'utilisateur (Drive/Dropbox en option M2+), **ou dans un dossier local de l'ordinateur** (mode 100 % local, choisi à l'onboarding) ; sauvegarde chiffrée optionnelle de la base sur le stockage cloud connecté
+- **Cache des pièces jointes** : téléchargé **chiffré** (même magasin chiffré que la base, mot de passe maître) — jamais en clair sur le disque
 - **Sécurité** : scopes minimaux demandés, aucune suppression automatique, corbeille avant toute destruction, journal d'activité de chaque action
 - **Synchro multi-postes** : base chiffrée (SQLCipher + mot de passe maître) déposée dans `Fusion/_sync/` sur le cloud, last-write-wins avec détection de conflit — voir [synchro-chiffree.md](synchro-chiffree.md)
 

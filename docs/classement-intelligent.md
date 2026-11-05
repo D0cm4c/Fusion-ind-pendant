@@ -46,6 +46,8 @@ Seuils :
 - 40–79 → suggestion faible, à confirmer
 - < 40 → statut `à_classer`, sans proposition de destination
 
+Les étiquettes peuvent aussi être **créées librement** par l'utilisateur, en plus de celles proposées par le moteur.
+
 ## Workflow type : un client envoie un fichier par mail
 
 1. L'app détecte la pièce jointe (Gmail API / Microsoft Graph)

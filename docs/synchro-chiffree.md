@@ -17,14 +17,14 @@ Objectif : utiliser le Drive / Dropbox non seulement comme stockage de fichiers,
 
 ## Mot de passe maître
 
-- Créé à l'onboarding si un stockage cloud est choisi, avec saisie double de confirmation
+- Créé à l'onboarding **dans tous les cas** (même en mode 100 % local) : la base est toujours chiffrée, avec saisie double de confirmation
 - Explication en clair à l'utilisateur : « ce mot de passe ne quitte jamais votre ordinateur ; il sert à chiffrer vos données avant qu'elles ne partent sur le cloud »
 - Mot de passe oublié = données irrécupérables (c'est le prix de l'anonymat) → une **phrase de récupération** est générée localement à la création, à imprimer et conserver hors ligne
 - Option « se souvenir sur ce poste » via `safeStorage` (confort local uniquement)
 
 ## Limites honnêtes
 
-- Seule la **base de données** (métadonnées des fichiers, index des mails, projets, clients, temps, factures, notes) est chiffrée. Les fichiers eux-mêmes restent sur le cloud, noms visibles par le fournisseur — sauf option avancée « coffre-fort » (chiffrement individuel des fichiers sensibles, envisagée post-M4)
+- La **base de données** (métadonnées des fichiers, index des mails, projets, clients, temps, factures, notes) **et le cache des pièces jointes** sont chiffrés — rien n'est jamais écrit en clair sur le disque. Les fichiers eux-mêmes restent sur le cloud, noms visibles par le fournisseur — sauf option avancée « coffre-fort » (chiffrement individuel des fichiers sensibles, envisagée post-M4)
 - La synchro n'est pas en temps réel : deux postes ouverts simultanément peuvent entrer en conflit (géré ci-dessus)
 
 ## Fichiers concernés
