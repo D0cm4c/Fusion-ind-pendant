@@ -15,6 +15,7 @@ projet:   id, nom, clientId, couleur, tauxHoraire, dossierRacine
 client:   id, nom, emails[], telephone, couleur
 tag:      id, libelle, couleur
 regle:    id, type (expediteur | mot_cle | extension | domaine), cle, dossierCible, tags, confiance, active
+commentaire: id, cibleType (fichier | note), cibleId, auteur, date, texte
 ```
 
 Arborescence distante proposée sur le Drive/Dropbox :
@@ -74,6 +75,10 @@ Quand l'utilisateur corrige une suggestion (autre dossier, autres étiquettes, �
 - Vues : **Tout / À classer** (badge avec le nombre en attente) / Par projet / Par client / Par type / Images / Doublons / Corbeille
 - Filtres combinables (projet × étiquette × période × source) + recherche plein texte (nom, étiquettes, expéditeur)
 - Tri par date, taille, nom ; **glisser-déposer** pour reclasser à la main (l'app apprend de chaque déplacement)
+
+## Commenter un fichier
+
+Chaque fichier classé dans un projet possède un **fil de commentaires** (texte, auteur, date), affiché dans la fiche du fichier. Les commentaires restent en local (SQLite). Voir [docs/notes-reunions.md](docs/notes-reunions.md).
 
 ## Sécurité
 
