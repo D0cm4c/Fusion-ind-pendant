@@ -1,49 +1,28 @@
-# Comptes développeur des API tierces — procédure
+# Connexion aux services tiers : faut-il des « comptes développeur » ?
 
-Ces comptes appartiennent au propriétaire du projet (créés dans ses propres consoles Google / Microsoft / Dropbox…). **Aucun secret ne doit jamais entrer dans le code ni dans git** : tout passe par un fichier `.env` à la racine, listé dans `.gitignore`, chargé uniquement dans le process main d'Electron.
+## GitHub ne suffit pas — pourquoi ?
 
-## Google (Gmail API + Drive API)
+GitHub héberge **le code** de l'application (dépôt, PR, issues — c'est là qu'est notre PR #1). Mais quand l'app veut lire **vos** mails ou **vos** fichiers, ce sont Google / Microsoft / Dropbox qui les gardent, et ils ne laissent aucune application y accéder sans identification. Il faudrait alors enregistrer l'app une fois dans leur console (Google Cloud Console, Azure Portal, Dropbox App Console) pour recevoir une clé OAuth (`client_id`) — gratuit et rapide (~10 min), mais **obligatoire** pour utiliser leurs API officielles.
 
-1. [Google Cloud Console](https://console.cloud.google.com) → nouveau projet
-2. Activer **Gmail API** et **Drive API**
-3. Écran de consentement OAuth : mode « Test » au début (testeurs = ton adresse) ; pour une diffusion publique, soumettre la vérification Google (scopes Gmail = restricted, revue CASA possible)
-4. Identifiants → créer « ID client OAuth » de type **Application de bureau** → redirect `http://127.0.0.1`
-5. Copier `client_id` / `client_secret` → `.env` : `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`
-6. Scopes demandés : `gmail.modify`, `gmail.send`, `drive.file`, `userinfo.email`
+## Mode retenu pour le MVP : zéro compte développeur
 
-## Microsoft (Outlook / Graph)
+Les **protocoles ouverts** ne demandent aucun enregistrement :
 
-1. [Azure Portal](https://portal.azure.com) → Inscriptions d'applications → Nouvelle inscription (comptes perso + pro : endpoint `/common`)
-2. Redirect URI : `http://localhost` (PKCE, **pas de secret client** pour une app desktop publique)
-3. API autorisées (déléguées) : `User.Read`, `Mail.ReadWrite`, `Mail.Send`, `offline_access`
-4. Copier l'ID d'application → `.env` : `MS_CLIENT_ID`
+- **Mail : IMAP (lecture) + SMTP (envoi)** avec adresse + mot de passe, ou **mot de passe d'application** quand le fournisseur l'exige — Gmail fonctionne en IMAP avec un mot de passe d'application, idem Orange, Free, SFR, OVH, Infomaniak, Yahoo, iCloud. Détection automatique des serveurs à partir de l'adresse, comme Thunderbird.
+  - Limite connue : **Outlook.com / Microsoft 365 moderne a retiré l'authentification basique** → nécessite OAuth, donc un enregistrement Azure. Proposé en option avancée.
+- **Stockage fichiers : WebDAV** (Nextcloud, Koofr, Icedrive, ownCloud, kDrive payant…) avec mot de passe d'application, ou **dossier local**. Google Drive / Dropbox sans API officielle sont impossibles en mode zéro-enregistrement.
+- Avantage : l'utilisateur n'a **rien à créer**, l'app fonctionne immédiatement.
 
-## Dropbox
+## Mode optionnel (M2+) : API officielles via comptes développeur
 
-1. [Dropbox App Console](https://www.dropbox.com/developers/apps) → Create app → « Scoped access » / Full Dropbox
-2. Permissions : `files.content.read`, `files.content.write`
-3. Redirect : `http://127.0.0.1:<port fixe>` (PKCE)
-4. `.env` : `DROPBOX_CLIENT_ID`
+Utile pour : Gmail API (labels, recherche plein texte, pièces jointes natives, notifications push), Microsoft Graph (Outlook moderne), Drive / Dropbox API (métadonnées riches, partage, corbeille distante).
 
-## Fournisseurs « vie privée » (M2+)
+Procédure quand on voudra l'activer :
 
-- **pCloud** : console développeur pCloud → app → OAuth2, redirect 127.0.0.1
-- **MEGA** : SDK officiel (compte MEGA, app enregistrée)
-- **kDrive** : API ownCloud-like d'Infomaniak + mot de passe d'application
-- **Nextcloud / Icedrive / Koofr…** : WebDAV + mot de passe d'application (pas d'OAuth centralisé)
-- **Proton Drive** : API encore jeune — à réévaluer au moment du dev
+1. **Google** — [Cloud Console](https://console.cloud.google.com) → projet → activer Gmail API + Drive API → identifiants OAuth « Application de bureau », redirect `http://127.0.0.1` → `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` dans `.env`. Mode « Test » suffisant en perso ; vérification Google (CASA) nécessaire uniquement en diffusion publique (scopes Gmail restricted).
+2. **Microsoft** — [Azure Portal](https://portal.azure.com) → inscription d'app, endpoint `/common`, redirect `http://localhost`, permissions déléguées `User.Read Mail.ReadWrite Mail.Send offline_access`, PKCE sans secret → `MS_CLIENT_ID` dans `.env`.
+3. **Dropbox** — [App Console](https://www.dropbox.com/developers/apps) → app « Scoped access », permissions `files.content.read/write`, redirect `http://127.0.0.1:<port>` → `DROPBOX_CLIENT_ID` dans `.env`.
 
-## Fichier `.env` (exemple de forme, valeurs à remplir)
+## Règle absolue sur les secrets
 
-```
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-MS_CLIENT_ID=
-DROPBOX_CLIENT_ID=
-```
-
-`.gitignore` doit contenir `.env`, `*.db`, `*.db.bak`, `dist/`, `node_modules/`.
-
-## Stockage des tokens dans l'app
-
-Jamais en clair : `safeStorage.encryptString()` (Keychain / Credential Manager / libsecret), stockés dans la table `compte_connexion.tokens_chiffres`. Le mot de passe maître (SQLCipher) ne passe jamais par le réseau.
+Aucun secret dans le code ni dans git : uniquement un fichier `.env` à la racine (dans `.gitignore`), chargé dans le process main d'Electron. Les tokens OAuth sont chiffrés via `safeStorage` (table `compte_connexion.tokens_chiffres`). Le mot de passe maître (SQLCipher) ne transite jamais par le réseau.

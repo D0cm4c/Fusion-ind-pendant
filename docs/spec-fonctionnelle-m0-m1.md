@@ -21,9 +21,8 @@ Document de référence avant le premier code : on ne code que ce qui est écrit
   - si cloud → **E1b Mot de passe maître** : champ + confirmation + explication « ne quitte jamais cet ordinateur » + [Imprimer ma phrase de récupération]
   - puis **E1c Connexion OAuth** : « Ouvrir dans mon navigateur… » → retour automatique (127.0.0.1) → « ✅ C'est connecté » ou erreur expliquée + [Réessayer]
   - si local → **E1d** choix du dossier (emplacement proposé par défaut)
-- **E2 — « Quelle boîte mail connecter ? »** : [Gmail] [Outlook / Microsoft 365] [Une autre adresse mail] [Plus tard]
-  - Gmail / Outlook → OAuth comme E1c
-  - autre → **E2b** : adresse mail → détection automatique des serveurs, sinon saisie guidée (IMAP/SMTP, ports, sécurité) → mot de passe (ou mot de passe d'application, expliqué pas à pas) → [Tester la connexion] → ✅ ou erreur en langage clair
+- **E2 — « Quelle boîte mail connecter ? »** (IMAP/SMTP, zéro enregistrement) : champ adresse mail + [Connecter] → **détection automatique des serveurs** (Gmail avec mot de passe d'application, Orange, Free, SFR, OVH, Infomaniak, Yahoo, iCloud…) ou saisie guidée (serveurs, ports, sécurité) → mot de passe / mot de passe d'application expliqué pas à pas → [Tester la connexion] → ✅ ou erreur en langage clair
+  - [Outlook / Microsoft 365] proposé en option avancée (OAuth Microsoft — voir [comptes-developpeur.md](comptes-developpeur.md)) ; [Plus tard]
 - **E3 — « Un chat à connecter ? »** (optionnel) : [Telegram] [Discord] [Plus tard]
 - **E4 — Premier projet** : nom du projet, nom du client, taux horaire (optionnel) → [Créer]
 - **E5 — « C'est prêt »** : checklist (Stockage ✓ / Mot de passe maître ✓ / Mail ✓ / Chat — / Premier projet ✓) + [Ouvrir mon espace]
@@ -42,9 +41,9 @@ Document de référence avant le premier code : on ne code que ce qui est écrit
 ## Parcours détaillés (scénarios à tester)
 
 - **A** : premier lancement complet (E0 → E5) en mode local sans aucun compte
-- **B** : connexion Gmail — succès, puis cas OAuth annulé/refusé (message + [Réessayer]), puis token révoqué plus tard (reconnexion guidée au clic)
+- **B** : connexion Gmail par IMAP (mot de passe d'application) — succès ; puis mauvais mot de passe (message clair + aide pas à pas pour créer le mot de passe d'application) ; puis perte réseau (mode hors ligne, reprise auto à la reconnexion)
 - **C** : nouveau mail avec PJ → suggestion dans « À classer » (E11) → [Valider] → le fichier passe en statut « classé » (le rangement cloud arrive en M2)
-- **D** : connexion IMAP (ex. Orange) avec mot de passe d'application
+- **D** : connexion IMAP d'un FAI (ex. Orange) avec mot de passe classique
 - **E** : app lancée hors ligne → données locales disponibles, synchro différée
 
 ## Règles métier M1 (moteur de suggestions)

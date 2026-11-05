@@ -5,24 +5,16 @@ Objectif : qu'un débutant soit opérationnel en quelques minutes, sans jamais �
 ## Parcours étape par étape (une seule question par écran)
 
 1. **Bienvenue** — en trois phrases, ce que fait l'application (le flux recevoir → classer → suivre le temps → facturer → être payé) et la promesse « rien ne bouge sans votre validation »
-2. **Où stocker vos fichiers ?**
-   - *Cloud classique :*
-     - [Google Drive] — connexion OAuth guidée
-     - [Dropbox] — connexion OAuth guidée
-   - *Cloud respectueux de la vie privée (recommandés) :*
-     - [kDrive — Infomaniak] — Suisse, 15 Go gratuits, hébergement souverain
-     - [pCloud] — Suisse, 10 Go gratuits
-     - [MEGA] — 20 Go gratuits, chiffrement de bout en bout natif
-     - [Proton Drive] — Suisse, 5 Go gratuits, zero-knowledge
-     - [Nextcloud / autre cloud compatible WebDAV] — auto-hébergé ou hébergeur de confiance (Zaclys, Hetzner…)
+2. **Où stocker vos fichiers ?** (aucun enregistrement développeur requis en MVP)
+   - [Nextcloud / Koofr / Icedrive / ownCloud — WebDAV] — adresse + mot de passe d'application, zéro configuration côté fournisseur
    - [Un dossier de mon ordinateur] — mode **100 % local** : aucun compte cloud requis, les fichiers restent sur la machine (dossier au choix, emplacement proposé par défaut)
+   - [Google Drive / Dropbox / kDrive / pCloud / MEGA / Proton Drive] — via API officielle : nécessite un enregistrement développeur (option avancée, voir [comptes-developpeur.md](comptes-developpeur.md))
    - [Plus tard]
    - dans tous les cas cloud, la base de l'app est **chiffrée localement avant tout envoi** (voir étape mot de passe maître), donc même Google Drive devient sûr pour les données
    - si Drive ou Dropbox est choisi, étape suivante : **créer un mot de passe maître** (il chiffre la base avant synchro sur le cloud ; il ne quitte jamais l'ordinateur — une phrase de récupération imprimable est proposée). Voir [synchro-chiffree.md](synchro-chiffree.md)
-3. **Quelle boîte mail connecter ?**
-   - [Gmail] — OAuth guidé (Gmail API)
-   - [Outlook / Microsoft 365] — OAuth guidé (Microsoft Graph)
-   - [Une autre adresse mail] — **IMAP/SMTP** : détection automatique des serveurs à partir de l'adresse mail (Orange, Free, SFR, Bouygues, La Poste, OVH, Infomaniak, Yahoo, iCloud, Zoho selon plan…), ou saisie guidée étape par étape ; quand le fournisseur l'exige, le **mot de passe d'application** est expliqué en langage clair
+3. **Quelle boîte mail connecter ?** (IMAP/SMTP, aucun enregistrement requis)
+   - saisir l'adresse mail → **détection automatique des serveurs** (Gmail avec mot de passe d'application, Orange, Free, SFR, Bouygues, La Poste, OVH, Infomaniak, Yahoo, iCloud, Zoho…) ou saisie guidée ; le **mot de passe d'application** est expliqué pas à pas quand le fournisseur l'exige
+   - [Outlook / Microsoft 365] — via Microsoft Graph (OAuth) : option avancée nécessitant un enregistrement Azure, voir [comptes-developpeur.md](comptes-developpeur.md)
    - [Plus tard]
 4. **Un chat à connecter ?** (optionnel) — [Telegram] [Discord] [Plus tard]
 5. **Votre premier projet** — nom du projet, nom du client, taux horaire par défaut
