@@ -2,10 +2,10 @@
 
 Application **desktop installable** qui aide un indépendant — y compris quelqu'un qui n'est pas à l'aise avec l'informatique — à administrer ses projets en un seul endroit.
 
-## Les quatre piliers
+## Les piliers
 
 1. **Fichiers & images** — classement et tri intelligents des fichiers reçus (mail, chat, dépôt manuel), stockés sur votre propre cloud (Google Drive, Dropbox, ou un fournisseur plus confidentiel : kDrive, pCloud, MEGA, Proton Drive, Nextcloud…). Voir [docs/classement-intelligent.md](docs/classement-intelligent.md)
-2. **Messages** — boîte mail unifiée (Gmail, Outlook, ou toute autre boîte mail via IMAP) et chat (Telegram, Discord), reliée à chaque projet et chaque client
+2. **Messages** — boîte mail unifiée via **IMAP/SMTP** (Gmail, Orange, Free, SFR, OVH, Yahoo… — Outlook/Microsoft 365 via Microsoft Graph en option), et chat (Telegram, Discord), reliée à chaque projet et chaque client
 3. **Temps** — suivi du temps passé par projet et par tâche (minuteur, timesheet)
 4. **Facturation** — devis et factures générés depuis le temps passé, envoyés par mail, suivi des paiements
 5. **Notes & base de connaissances** — notes de réunion rattachées à chaque projet (minuteur intégré, actions à faire), notes reliées entre elles façon base de connaissances (liens proposés automatiquement, comme Obsidian mais sans syntaxe à apprendre), et fil de commentaires sur chaque fichier. Voir [docs/notes-reunions.md](docs/notes-reunions.md)
@@ -31,11 +31,15 @@ Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce f
 - **Un écran d'accueil utile** : « Aujourd'hui », centré sur **se mettre au travail** — tâches du jour, intervention/RDV du jour, messages à traiter, en attente d'argent — avec la boîte à classer en compteur secondaire — voir [docs/ecran-accueil.md](docs/ecran-accueil.md) et [docs/personas.md](docs/personas.md)
 - **Toujours chiffré** : base de données et cache des pièces jointes chiffrés (mot de passe maître, créé à l'installation même en local) — rien n'est jamais écrit en clair sur le disque
 - **Synchro multi-postes chiffrée** : le cloud sert aussi à synchroniser l'app entre plusieurs ordinateurs, via un fichier chiffré (mot de passe maître, jamais transmis) — voir [docs/synchro-chiffree.md](docs/synchro-chiffree.md)
-- **Vos comptes, vos données** : connexion OAuth à vos propres comptes Google Drive / Dropbox / Gmail / Outlook ; les identifiants sont chiffrés dans le trousseau de votre système, jamais stockés en clair
+- **Vos comptes, vos données** : en MVP, connexion par protocoles ouverts **sans aucun enregistrement développeur** (IMAP/SMTP + WebDAV ou dossier local) ; les API officielles Google/Microsoft/Dropbox (OAuth2) restent une option M2+ — voir [docs/comptes-developpeur.md](docs/comptes-developpeur.md). Les identifiants sont chiffrés via le trousseau de votre système (`safeStorage`), jamais stockés en clair
 
 ## Stack
 
-Electron + Vite + React + TypeScript, SQLite (`better-sqlite3`), empaquetage `electron-builder`, OAuth2 + PKCE avec retour sur `127.0.0.1`.
+Electron + Vite + React + TypeScript, base **SQLCipher** (chiffrée AES-256, mot de passe maître), `imapflow` + `nodemailer` (IMAP/SMTP), client **WebDAV**, empaquetage `electron-builder`. API officielles (OAuth2 + PKCE, retour `127.0.0.1`) en option M2+.
+
+## État du projet
+
+**Cadrage terminé et validé** (revue critique effectuée, décisions tranchées — voir [docs/revue-specs.md](docs/revue-specs.md)), mergé sur `main`. Aucune ligne de code écrite pour l'instant : la prochaine étape est le **M0** — squelette Electron + base chiffrée + onboarding E0–E5 + écran « Aujourd'hui » — selon [docs/phasage.md](docs/phasage.md) et la [spec fonctionnelle M0–M1](docs/spec-fonctionnelle-m0-m1.md).
 
 ## Documentation
 
