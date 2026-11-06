@@ -37,12 +37,17 @@ Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce f
 
 Electron + Vite + React + TypeScript, base **SQLCipher** (chiffrée AES-256, mot de passe maître), `imapflow` + `nodemailer` (IMAP/SMTP), client **WebDAV**, empaquetage `electron-builder`. API officielles (OAuth2 + PKCE, retour `127.0.0.1`) en option M2+.
 
+## Design
+
+Thème **sombre contemporain pro** (charbon `#0D1117`, accent cuivre `#D97E4A`) avec des mécanismes accessibles : gros boutons explicites, une seule action primaire par carte, contraste AA. Maquette de l'écran d'accueil : [docs/maquette-accueil.png](docs/maquette-accueil.png) — design system complet dans [docs/design.md](docs/design.md).
+
 ## État du projet
 
 **Cadrage terminé et validé** (revue critique effectuée, décisions tranchées — voir [docs/revue-specs.md](docs/revue-specs.md)), mergé sur `main`. Aucune ligne de code écrite pour l'instant : la prochaine étape est le **M0** — squelette Electron + base chiffrée + onboarding E0–E5 + écran « Aujourd'hui » — selon [docs/phasage.md](docs/phasage.md) et la [spec fonctionnelle M0–M1](docs/spec-fonctionnelle-m0-m1.md).
 
 ## Documentation
 
+- [Design system et maquette](docs/design.md)
 - [Benchmark des applications existantes](docs/concurrents.md)
 - [Spec fonctionnelle M0–M1](docs/spec-fonctionnelle-m0-m1.md)
 - [Schéma de la base de données](docs/schema-bdd.md)
