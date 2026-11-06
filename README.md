@@ -31,6 +31,7 @@ Le classement intelligent des fichiers (pilier 1) est la porte d'entrée de ce f
 - **Un écran d'accueil utile** : « Aujourd'hui », centré sur **se mettre au travail** — tâches du jour, intervention/RDV du jour, messages à traiter, en attente d'argent — avec la boîte à classer en compteur secondaire — voir [docs/ecran-accueil.md](docs/ecran-accueil.md) et [docs/personas.md](docs/personas.md)
 - **Toujours chiffré** : base de données et cache des pièces jointes chiffrés (mot de passe maître, créé à l'installation même en local) — rien n'est jamais écrit en clair sur le disque
 - **Synchro multi-postes chiffrée** : le cloud sert aussi à synchroniser l'app entre plusieurs ordinateurs, via un fichier chiffré (mot de passe maître, jamais transmis) — voir [docs/synchro-chiffree.md](docs/synchro-chiffree.md)
+- **Pont MCP local (M4+)** : un serveur MCP embarqué (127.0.0.1 + token) permet de dicter ses debriefs de réunion à son assistant IA, qui les enregistre dans l'app — voir [docs/mcp-debrief.md](docs/mcp-debrief.md)
 - **Vos comptes, vos données** : en MVP, connexion par protocoles ouverts **sans aucun enregistrement développeur** (IMAP/SMTP + WebDAV ou dossier local) ; les API officielles Google/Microsoft/Dropbox (OAuth2) restent une option M2+ — voir [docs/comptes-developpeur.md](docs/comptes-developpeur.md). Les identifiants sont chiffrés via le trousseau de votre système (`safeStorage`), jamais stockés en clair
 
 ## Stack
@@ -48,6 +49,7 @@ Thème **sombre contemporain pro** (charbon `#0D1117`, accent cuivre `#D97E4A`) 
 ## Documentation
 
 - [Design system et maquette](docs/design.md)
+- [Pont MCP — dicter les debriefs à l'IA](docs/mcp-debrief.md)
 - [Benchmark des applications existantes](docs/concurrents.md)
 - [Spec fonctionnelle M0–M1](docs/spec-fonctionnelle-m0-m1.md)
 - [Schéma de la base de données](docs/schema-bdd.md)
